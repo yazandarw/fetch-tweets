@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tweets</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row header">
+        <div class="col-1">
+          <p class="t">T</p>
+        </div>
+        <div class="col-10">
+          <div class="row justify-content-center">
+            <button type="button" class="btn btn-info" id="search-button">
+              Search
+            </button>
+            <input id="input" class="col-lg-5 col-md-5 col-5 col-xs-3 form-control" type="text" placeholder="search"/>
+          </div>
+        </div>
+        <div class="col-lg-12 btn-group btnn-gruppe">
+          <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+            <button type="button" class="btn btn-info" id="save-search">
+              Save Search
+            </button>
+          </div>
+          <div class="col-lg-1 col-md-3 col-sm-3 col-3">
+            <a href="login.html">
+              <button type="button" class="btn btn-info" id="loginLink" style="display: none">
+                Login
+              </button>
+            </a>
+          </div>
+          <div class="col-lg-1 col-md-3 col-sm-3 col-3">
+            <a href="searchHistory.html">
+            <button type="button" class="btn btn-info" id="savedLink" style="display: none">
+              Saved
+            </button>
+            </a>
+          </div>
+          <div class="col-lg-1 col-md-3 col-sm-3 col-3">
+            <button type="button" class="btn btn-info" id="logout" style="display: none" onclick="logout()">
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="justify-content-center tweets_window" id="tweets-container">
+        <h1>Search something and it will appear here!</h1>
+      </div>
+    </div>
+    <script type="application/javascript" src="script.js"></script>
+    <script>
+      window.onload = () => {
+        if (!localStorage.getItem("loginToken")) {
+          document.getElementById("loginLink").style.display = "block";
+        } else {
+          document.getElementById("savedLink").style.display = "block";
+          document.getElementById("logout").style.display = "block";
+        }
+      };
+      const logout = () => {
+        window.localStorage.removeItem("loginToken");
+        window.location.reload();
+      };
+    </script>
+  </body>
+</html>

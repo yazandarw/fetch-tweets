@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Search History</title>
+  </head>
+  <body id="searchPage">
+    <div class="history-container" id="saved">
+     <h1>Saved Searches</h1>
+    </div>
+    <script>
+      window.onload = () => {
+         const loginToken = localStorage.getItem("loginToken");
+        fetch("http://localhost:8080/savedSearches", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+             loginToken: loginToken,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach(element => {
+              const a = document.createElement('a');
+              const html = `  <div class="inner">
+                <a href="index.html?s=${element.search}">${element.search}</a>
+                <button class="btn btn-danger" id="${element._id}" onclick="deleteSearch('${element._id}')">Delete</button>
+              </div>`;
+             let frag = document.createRange().createContextualFragment(html);
+              document.getElementById('saved').appendChild(frag)
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
+      const deleteSearch = (id)=>{
+        fetch("http://localhost:8080/deleteSearch", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(id).innerText="Deleted";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      }
+    </script>
+  </body>
+</html>

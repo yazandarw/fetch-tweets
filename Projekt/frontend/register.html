@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Register</h1>
+      <form id="form">
+        <p class="text-danger" id="error"></p>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required/>
+          <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" required/>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="register-button">
+          Register
+        </button>
+        <a href="login.html">Already have Account? Log in</a>
+      </form>
+    </div>
+    <script>
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        fetch("http://localhost:8080/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.wasRegisterSuccess) {
+              localStorage.setItem("loginToken", data.loginToken);
+              window.history.pushState("home", "index", "index.html");
+              window.location.reload();
+            } else {
+              document.getElementById("error").innerText = "Email Already Exists";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

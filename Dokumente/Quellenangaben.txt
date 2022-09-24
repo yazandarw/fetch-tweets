@@ -1,0 +1,14 @@
+Quellen: 
+
+https://3alam.pro/abdullascript/articles/what-is-nodejs
+https://www.tutomena.com/npm/
+https://docs.mongodb.com/
+https://www.tutorialspoint.com/mongodb/mongodb_create_database.htm
+https://www.tutorialspoint.com/nodejs/index.htm
+https://nodejs.org/en/docs/
+
+
+Links von Fotos
+https://www.google.de/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Ff1%2F53%2F6c%2Ff1536c8458f89cb03718c5f7d4a2667b.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.de%2Fpin%2F804737027156856026%2F%3Famp_client_id%3DCLIENT_ID(_)%26mweb_unauth_id%3D%7B%7Bdefault.session%7D%7D%26amp_url%3Dhttps%253A%252F%252Fwww.pinterest.de%252Famp%252Fpin%252F404620347765936132%252F&tbnid=iYJ9ySyXiWxQsM&vet=12ahUKEwjttvOnvdDtAhUBzKQKHSvEDYkQMygBegUIARCsAQ..i&docid=khvcjdaJ-6JivM&w=600&h=600&itg=1&q=morning%20picture&hl=ar&authuser=0&ved=2ahUKEwjttvOnvdDtAhUBzKQKHSvEDYkQMygBegUIARCsAQ
+
+https://www.google.de/imgres?imgurl=https%3A%2F%2Fimg1.gbpicsonline.com%2Fgb%2F17%2F122.png&imgrefurl=https%3A%2F%2Fwww.gbpicsonline.com%2Fhallo.html&tbnid=xqrR9fPoUOa1UM&vet=10CCQQMyiEBGoXChMIoOPurb3Q7QIVAAAAAB0AAAAAEAk..i&docid=EaWh2D0MIzmvSM&w=1080&h=1080&q=hallo%20picture&hl=ar&authuser=0&ved=0CCQQMyiEBGoXChMIoOPurb3Q7QIVAAAAAB0AAAAAEAk
